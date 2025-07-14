@@ -8,13 +8,15 @@
     const value = e.target[0].value;
     
     if (value.trim() === "") return error.value = "Task cannot be empty";
-    else error.value = null;
+    if (error.value) error.value = null;
 
     tasks.value.push({ 
       id: Date.now(),
       text: e.target[0].value, 
       done: false,
     })
+
+    e.target.reset();
   }
 
   function toggleDone(index) {
@@ -27,12 +29,17 @@
 </script>
 
 <template>
-  <div class="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
+  <div class="">
     <h1 class="text-2xl font-bold mb-4">Day Task Tracker</h1>
 
     <form 
       @submit.prevent="addTask" 
-      class="flex flex-wrap gap-2 m-4"
+      class="
+        flex flex-wrap gap-2 
+        m-4 p-6
+        bg-white shadow-lg 
+        w-full max-w-lg rounded-xl
+      "
     >
       <input
         type="text"
