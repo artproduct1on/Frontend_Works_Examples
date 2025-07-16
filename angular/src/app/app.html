@@ -1,0 +1,11 @@
+<main class="main">
+  <h1 class="title">Hello, {{ title() }}!</h1>
+
+  @for(product of data; track product.id) {
+  <app-card [img]="product.images[0]" [title]="product.title" [description]="product.description" />
+  }
+
+</main>
+
+
+<router-outlet />
