@@ -1,0 +1,7 @@
+<h1>Lol</h1>
+
+@for(item of items; track item.id) {
+<app-card-product [product]="item" />
+} @empty {
+<li>There are no items.</li>
+}
